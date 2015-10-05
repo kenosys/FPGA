@@ -43,8 +43,8 @@ localparam [8:0]	IDLE		=	9'h001,
 					DONE		=	9'h100;
 
 localparam [19:0]	START_TIME	=	20'd448000,			//448000,
-						SYNC_TIME	=	20'd210000,			//210000,
-						CENTER		=	20'd42000;			//42000;
+					SYNC_TIME	=	20'd210000,			//210000,
+					CENTER		=	20'd42000;			//42000;
 
 //Pulse Edge detection circuit
 reg [1:0]e_bit;	
@@ -63,8 +63,8 @@ always@(posedge clk, negedge rst)
 begin
 	if(!rst)
 	begin
-		state_reg 	<= 	IDLE;
-		led_reg		<= 	32'h80000000;
+		state_reg 	<= 		IDLE;
+		led_reg		<= 		32'h80000000;
 		count_reg	<=		20'h00000;
 		c_bit_reg	<=		1'b0;
 		led			<=		8'h00;
@@ -72,7 +72,7 @@ begin
 	else
 	begin
 		state_reg 	<=		state_next;
-		led_reg		<= 	led_next;
+		led_reg		<= 		led_next;
 		count_reg	<=		count_next;
 		c_bit_reg	<=		c_bit_next;
 		led			<=		led_tmp;
@@ -84,7 +84,7 @@ assign count_next = (c_load)?count_reg+1'b1:20'h00000;
 always@*
 begin
 	state_next		=	state_reg;
-	led_next			=	led_reg;
+	led_next		=	led_reg;
 	done_tick 		=	1'b0;
 	c_load 			=	1'b0;
 	c_bit_next		=	c_bit_reg;
