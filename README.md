@@ -2,5 +2,5 @@
 
 FPGA DEMOS
 
-* Must add button repeat press to NEC IR protocols 
-* 
+* Must add button repeat press to NEC IR Remote protocols 
+*  
